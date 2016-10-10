@@ -9,13 +9,13 @@ import java.io._
 
 object Driver extends App {
   val rootDir = new File(".").getCanonicalPath()
-  val dut = "GCDTester"
+  val dut = "MemoryLibraryTester"
   val buildDir = s"${rootDir}/build"
   val verilogFile = s"${buildDir}/${dut}.v"
   val cppHarness = s"${rootDir}/chisel3/src/main/resources/top.cpp"
 
-  // Run Chisel 3
-  val s = Chisel.Driver.emit(() => new GCDTester(4))
+  // Run Chisel 3 
+  val s = Chisel.Driver.emit(() => new MemoryLibraryTester)
   println(s)
 
   // Parse circuit into FIRRTL
